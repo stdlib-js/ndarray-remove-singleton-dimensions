@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,23 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var isndarrayLike = require( '@stdlib/assert-is-ndarray-like' );
-var base = require( '@stdlib/ndarray-base-remove-singleton-dimensions' );
-var format = require( '@stdlib/error-tools-fmtprodmsg' );
-
-
-// MAIN //
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
 * Returns a read-only view of an input ndarray with singleton dimensions removed.
 *
-* @param {ndarray} x - input array
-* @throws {TypeError} first argument must be an ndarray
-* @returns {ndarray} ndarray view
+* @param x - input array
+* @returns output array
 *
 * @example
 * var array = require( '@stdlib/ndarray-array' );
@@ -45,14 +39,9 @@ var format = require( '@stdlib/error-tools-fmtprodmsg' );
 * var y = removeSingletonDimensions( x );
 * // returns <ndarray>[ [ 1, 2 ], [ 3, 4 ] ]
 */
-function removeSingletonDimensions( x ) {
-	if ( !isndarrayLike( x ) ) {
-		throw new TypeError( format( 'null4f', x ) );
-	}
-	return base( x, false );
-}
+declare function removeSingletonDimensions<T = unknown, U extends typedndarray<T> = typedndarray<T>>( x: U ): U;
 
 
 // EXPORTS //
 
-module.exports = removeSingletonDimensions;
+export = removeSingletonDimensions;
